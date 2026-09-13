@@ -1,0 +1,159 @@
+/* Canvas component styles */
+.canvas-svg {
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+  user-select: none;
+  cursor: default;
+  display: block;
+}
+
+/* Standalone path when no multi-layer document is active */
+.canvas-svg path.standalone-path {
+  stroke: white;
+  fill: none;
+}
+
+.canvas-svg path.standalone-path.filled {
+  fill: rgba(255, 255, 255, 0.25);
+}
+
+.canvas-svg path.canvas-path.hovered {
+  stroke: #ff3333 !important;
+  fill: none !important;
+}
+
+.canvas-svg path.canvas-path.dragged {
+  stroke: rgb(0, 174, 255) !important;
+  fill: none !important;
+}
+
+/* Multi-layer SVG paths */
+.canvas-svg path.layer-path {
+  transition: opacity 120ms ease;
+}
+
+.canvas-svg path.layer-path.selectable:hover {
+  filter: drop-shadow(0 0 3px rgba(0, 174, 255, 0.6));
+}
+
+.canvas-svg path.layer-path.active-layer {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+}
+
+.canvas-svg rect.grid {
+  fill: #353536;
+  stroke: none;
+}
+
+.canvas-svg rect.grid.tick {
+  fill: #454545;
+  stroke: none;
+}
+
+.canvas-svg line.control {
+  stroke: gray;
+}
+
+.canvas-svg line.hovered {
+  stroke: #ff3333;
+}
+
+.canvas-svg circle {
+  cursor: pointer;
+  stroke: transparent;
+}
+
+.canvas-svg circle.control {
+  fill: gray;
+}
+
+.canvas-svg circle.target {
+  fill: white;
+}
+
+.canvas-svg circle.hovered {
+  fill: #ff3333;
+}
+
+.canvas-svg circle.dragged {
+  fill: rgb(0, 174, 255);
+}
+
+.canvas-svg.preview {
+  background-color: white;
+}
+
+.canvas-svg.preview path.standalone-path {
+  stroke: black;
+}
+
+.canvas-svg.preview path.standalone-path.filled {
+  fill: black;
+  stroke: none;
+}
+
+.canvas-svg.preview path.canvas-path.hovered {
+  stroke: red;
+  fill: none;
+}
+
+.canvas-svg.preview circle,
+.canvas-svg.preview line,
+.canvas-svg.preview rect.grid,
+.canvas-svg.preview text.tick {
+  display: none;
+}
+
+.canvas-svg text.tick {
+  fill: #595959;
+  text-anchor: end;
+  cursor: default;
+  user-select: none;
+}
+
+/* Image controls */
+.canvas-svg image {
+  pointer-events: none;
+}
+
+.canvas-svg rect.image-control {
+  fill: rgba(0, 0, 0, 0);
+  stroke: none;
+}
+
+.canvas-svg line.image-control {
+  stroke: gray;
+}
+
+.canvas-svg circle.image-control {
+  fill: gray;
+}
+
+.canvas-svg .focused-image line.image-control {
+  stroke: rgb(0, 174, 255);
+}
+
+.canvas-svg .focused-image circle.image-control {
+  fill: rgb(0, 174, 255);
+}
+
+.canvas-svg .image-control.horizontal {
+  cursor: ns-resize;
+}
+
+.canvas-svg .image-control.vertical {
+  cursor: ew-resize;
+}
+
+.canvas-svg .image-control.down {
+  cursor: nwse-resize;
+}
+
+.canvas-svg .image-control.up {
+  cursor: nesw-resize;
+}
+
+.canvas-svg .image-control.move {
+  cursor: move;
+}
