@@ -5,6 +5,7 @@ import { SvgPath, SvgItem } from '../../lib/svg';
 import type { SvgCommandTypeAny } from '../../lib/svg-command-types';
 import { EditorConfig } from '../../services/config.service';
 import { APP_VERSION } from '../../version';
+import { Logo } from '../common/Logo';
 import {
   Lock,
   Unlock,
@@ -514,7 +515,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
         onClick={onOpenAbout}
         title="About SVGEdito"
       >
-        SVGEdito v{APP_VERSION}
+        <Logo size={14} fill="currentColor" />
+        <span>SVGEdito v{APP_VERSION}</span>
       </button>
     </div>
   );
