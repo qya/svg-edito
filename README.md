@@ -1,5 +1,7 @@
 # SVGEdito
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/qya/svg-edito)
+
 > A professional, modern SVG and vector path editor built with React, TypeScript, and Vite. Inspired by the layer workflow of design tools like Figma and Photoshop, with a deep, first-class path-manipulation engine inspired by [svg-path-editor](https://github.com/Yqnn/svg-path-editor).
 
 ---
@@ -70,7 +72,7 @@ npm install
 npm run dev
 ```
 
-Open your browser at `http://localhost:5173`.
+Open your browser at `http://localhost:3000`.
 
 ### Production Build
 
@@ -90,6 +92,33 @@ npm test
 
 # Run tests in watch mode
 npm run test:watch
+```
+
+### Deploy to Cloudflare Workers
+
+Click **Deploy to Cloudflare** above to copy this repository into your GitHub account and deploy it using Cloudflare Workers Builds. You need Cloudflare and GitHub accounts. Accept the detected build command (`npm run build`) and deploy command (`npm run deploy`).
+
+The app runs as a static site on Workers. `wrangler.jsonc` serves the Vite output in `dist/` and enables single-page application fallback. No secrets, environment variables, or database bindings are required.
+
+For deployment from your machine, use Node.js 22.18+ and run:
+
+```bash
+npm ci
+npm run deploy
+```
+
+The deploy script downloads Wrangler 4 through `npx`, prompts you to sign in to Cloudflare when needed, builds the app, and deploys it to a `workers.dev` URL. Change `name` in `wrangler.jsonc` to use a different Worker name.
+
+To build and preview with the local Cloudflare runtime:
+
+```bash
+npm run preview:cloudflare
+```
+
+Wrangler runs the build command before serving or deploying. Workers Builds also runs the detected build command, so its deployment may build the app a second time. To validate deployment packaging without publishing:
+
+```bash
+npm run deploy -- --dry-run
 ```
 
 ---
